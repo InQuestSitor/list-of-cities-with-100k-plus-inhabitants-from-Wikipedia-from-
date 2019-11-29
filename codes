@@ -1,0 +1,19 @@
+# import the required modules:
+import pandas as pd
+import string as sg
+
+# Generate a list of the English alphabets. This is required as the Wikipedia pages are labelled/ 'numbered' from A to Z.
+alp = list(sg.ascii_uppercase) 
+
+# The url/ website for the project:
+url = "https://en.wikipedia.org/wiki/List_of_towns_and_cities_with_100,000_or_more_inhabitants/cityname:_" 
+
+# Generate a list of the webpages of interest:
+wikipages = [url+i for i in alp]
+
+#  Generate a list of the cities from each Wikipedia page
+data = [pd.read_html(i)[0]['City'] for i in wikipages]
+
+# Concate the generated lists into a single list:
+cities = [j for i in tables for j in i]
+print(cities)

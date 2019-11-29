@@ -15,5 +15,5 @@ wikipages = [url+i for i in alp]
 data = [pd.read_html(i)[0]['City'] for i in wikipages]
 
 # Concate the generated lists into a single list:
-cities = [j for i in tables for j in i]
+cities = [j for i in data for j in i]
 print(cities)
